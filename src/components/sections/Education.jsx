@@ -17,7 +17,7 @@ const Education = () => {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-card text-card-foreground rounded-lg border shadow-sm hover:shadow-lg transition-shadow p-6"
+              className="bg-card text-card-foreground rounded-lg border shadow-sm hover:shadow-xl transition-shadow p-6"
             >
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">

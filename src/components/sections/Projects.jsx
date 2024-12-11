@@ -10,12 +10,14 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import bookiImage from "../../assets/images/booki.png";
 import kasaImage from "../../assets/images/kasa.png";
+import bluelImage from "../../assets/images/SophieBluelPhoto2.png";
 
 const Projects = () => {
   const projects = [
     {
       title: "Booki",
-      description: "Description du projet",
+      description:
+        "Création de la page d'accueil d'un site de réservation de logements",
       imageUrl: bookiImage,
       demoUrl: "https://kilshaka.github.io/Booki/",
       githubUrl: "https://github.com/KilShaka/Booki",
@@ -23,18 +25,19 @@ const Projects = () => {
     },
     {
       title: "Sophie Bluel",
-      description: "Description du projet",
-      imageUrl: "/api/placeholder/600/400",
+      description:
+        "Création d'un site interactif pour une architecte, avec gestion d'API ",
+      imageUrl: bluelImage,
       demoUrl: "https://demo.com",
-      githubUrl: "https://github.com",
-      technologies: ["React", "Node.js", "MongoDB"],
+      githubUrl: "https://github.com/KilShaka/Sophie-Bluel-Projet3",
+      technologies: ["HTML", "CSS", "Javascript"],
     },
     {
       title: "Kasa",
-      description: "Description du projet",
+      description: "Création d'une application web de location immobilière",
       imageUrl: kasaImage,
-      demoUrl: "https://demo.com",
-      githubUrl: "https://github.com",
+      demoUrl: "https://kasa-projet-5.vercel.app/",
+      githubUrl: "https://github.com/KilShaka/Kasa-Projet_5",
       technologies: ["React", "Sass"],
     },
   ];
@@ -47,7 +50,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
+              className="hover:scale-105 hover:shadow-xl transition-all duration-300"
             >
               <CardHeader>
                 <AspectRatio ratio={16 / 9} className="bg-muted">
