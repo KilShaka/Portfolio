@@ -10,12 +10,16 @@ const Navbar = () => {
         <div className="text-lg font-bold">Portfolio</div>
 
         <div className="ml-auto flex items-center gap-4">
-          <Button variant="ghost">Projets</Button>
-          <Button variant="ghost">Skills</Button>
+          <Button variant="ghost" asChild>
+            <a href="#projects">Projets</a>
+          </Button>
+          <Button variant="ghost" asChild>
+            <a href="#skills">Skills</a>
+          </Button>
           <Separator className="h-8" orientation="vertical" />
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/votre-username"
+              href="https://github.com/KilShaka"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -26,7 +30,7 @@ const Navbar = () => {
 
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://linkedin.com/in/votre-profile"
+              href="https://www.linkedin.com/in/killian-pereau/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -35,9 +39,11 @@ const Navbar = () => {
             </a>
           </Button>
 
-          <Button variant="ghost" size="icon">
-            <Mail className="h-5 w-5" />
-            <span className="sr-only">Contact</span>
+          <Button variant="ghost" size="icon" asChild>
+            <a href="#contact">
+              <Mail className="h-5 w-5" />
+              <span className="sr-only">Contact</span>
+            </a>
           </Button>
 
           <ThemeToggler />

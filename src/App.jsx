@@ -27,11 +27,11 @@ function App() {
           </div>
         </div>
         <Separator className="my-4" />
-        <Projects />
+        <Projects id="projects" />
         <Separator className="my-4" />
-        <Skills />
+        <Skills id="skills" />
         <Separator className="my-4" />
-        <Contact />
+        <Contact id="contact" />
       </div>
     </div>
   );

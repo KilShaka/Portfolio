@@ -3,6 +3,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const skills = [
@@ -43,7 +44,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-12">
+    <section id="skills" className="py-12 scroll-mt-16">
       <div className="container">
         <h2 className="text-3xl font-bold text-center mb-8">
           Compétences Techniques
@@ -51,26 +52,33 @@ const Skills = () => {
 
         {/* Grille des skills */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {skills.map((skill) => (
-            <HoverCard key={skill.name}>
-              <HoverCardTrigger asChild>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors cursor-pointer">
-                  <i
-                    className={`${skill.icon} text-6xl transition-transform hover:scale-110`}
-                  />
-                  <span className="font-medium">{skill.name}</span>
-                </div>
-              </HoverCardTrigger>
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <HoverCard key={skill.name}>
+                <HoverCardTrigger asChild>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors cursor-pointer">
+                    <i
+                      className={`${skill.icon} text-6xl transition-transform hover:scale-110`}
+                    />
+                    <span className="font-medium">{skill.name}</span>
+                  </div>
+                </HoverCardTrigger>
 
-              <HoverCardContent className="w-80">
-                <div className="flex flex-col gap-2">
-                  <h4 className="font-bold text-lg">{skill.name}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {skill.description}
-                  </p>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
+                <HoverCardContent className="w-80">
+                  <div className="flex flex-col gap-2">
+                    <h4 className="font-bold text-lg">{skill.name}</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {skill.description}
+                    </p>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            </motion.div>
           ))}
         </div>
       </div>
