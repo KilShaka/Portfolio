@@ -88,7 +88,15 @@ const Navbar = () => {
           className="w-full justify-start"
           onClick={toggleMenu}
         >
-          <a href="#skills">Skills</a>
+          <a href="#skills">Compétences</a>
+        </Button>
+        <Button
+          variant="ghost"
+          asChild
+          className="w-full justify-start"
+          onClick={toggleMenu}
+        >
+          <a href="#formation">Formation</a>
         </Button>
         <Separator className="my-2" />
         <div className="flex gap-4 justify-center">

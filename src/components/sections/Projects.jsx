@@ -54,7 +54,6 @@ const Projects = () => {
       description:
         "Création d'un site interactif pour une architecte, avec gestion d'API",
       imageUrl: bluelImage,
-      // demoUrl: "https://demo.com",
       githubUrl: "https://github.com/KilShaka/Sophie-Bluel-Projet3",
       technologies: ["HTML", "CSS", "Javascript"],
       detailedInfo: {
@@ -213,15 +212,17 @@ const Projects = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="flex gap-4">
-                  <Button asChild variant="default" className="w-full">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Demo
-                    </a>
-                  </Button>
+                  {project.demoUrl && (
+                    <Button asChild variant="default" className="w-full">
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button asChild variant="outline" className="w-full">
                     <a
                       href={project.githubUrl}
