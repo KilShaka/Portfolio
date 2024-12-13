@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,8 +18,10 @@ import {
   ToastViewport,
 } from "@/components/ui/toast";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  //STATE
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,26 +30,49 @@ const Contact = () => {
   });
   const [showToast, setShowToast] = useState(false);
 
-  const handleSubmit = (e) => {
+  //LOGIQUE
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setShowToast(true);
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+
+    const emailContent = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        emailContent
+      );
+
+      console.log("Email envoyé!", response.status);
+      setShowToast(true);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Erreur:", error);
+    }
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [e.target.name]: e.target.value,
     }));
   };
 
+  //RENDER
   return (
     <section id="contact" className="py-12 min-h-screen scroll-mt-16">
       <div className="container max-w-2xl">
@@ -143,14 +168,12 @@ const Contact = () => {
             <ToastDescription>
               Votre message a été envoyé avec succès.
             </ToastDescription>
-            <ToastAction altText="Close">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowToast(false)}
-              >
-                Fermer
-              </Button>
+            <ToastAction
+              altText="Close"
+              className="rounded-md px-3 py-2 text-sm hover:bg-secondary"
+              onClick={() => setShowToast(false)}
+            >
+              Fermer
             </ToastAction>
           </Toast>
         )}
