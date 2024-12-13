@@ -17,8 +17,8 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
-import bookiImage from "../../assets/images/booki.png";
-import kasaImage from "../../assets/images/kasa.png";
+import bookiImage from "../../assets/images/Booki.png";
+import kasaImage from "../../assets/images/Kasa.png";
 import bluelImage from "../../assets/images/SophieBluelPhoto2.png";
 import { motion } from "framer-motion";
 
