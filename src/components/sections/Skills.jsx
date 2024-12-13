@@ -46,9 +46,14 @@ const Skills = () => {
   return (
     <section id="skills" className="py-12 scroll-mt-16">
       <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold text-center mb-8"
+        >
           Compétences Techniques
-        </h2>
+        </motion.h2>
 
         {/* Grille des skills */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

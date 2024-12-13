@@ -6,8 +6,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
+import { Info } from "lucide-react";
 import bookiImage from "../../assets/images/booki.png";
 import kasaImage from "../../assets/images/kasa.png";
 import bluelImage from "../../assets/images/SophieBluelPhoto2.png";
@@ -23,15 +32,46 @@ const Projects = () => {
       demoUrl: "https://kilshaka.github.io/Booki/",
       githubUrl: "https://github.com/KilShaka/Booki",
       technologies: ["HTML", "CSS"],
+      detailedInfo: {
+        context:
+          "Premier projet de la formation OpenClassrooms visant à créer une interface responsive.",
+        objectives: [
+          "Intégrer une maquette en HTML et CSS",
+          "Implémenter une interface responsive",
+          "Versionner le code avec Git et GitHub",
+        ],
+        challenges: [
+          "Apprentissage des bases du responsive design",
+          "Gestion des différents breakpoints",
+          "Organisation du code CSS",
+        ],
+        solutions:
+          "Utilisation des media queries et flexbox pour créer une mise en page adaptative. Structure du code CSS avec une approche modulaire.",
+      },
     },
     {
       title: "Sophie Bluel",
       description:
-        "Création d'un site interactif pour une architecte, avec gestion d'API ",
+        "Création d'un site interactif pour une architecte, avec gestion d'API",
       imageUrl: bluelImage,
-      demoUrl: "https://demo.com",
+      // demoUrl: "https://demo.com",
       githubUrl: "https://github.com/KilShaka/Sophie-Bluel-Projet3",
       technologies: ["HTML", "CSS", "Javascript"],
+      detailedInfo: {
+        context: "Portfolio dynamique pour une architecte d'intérieur.",
+        objectives: [
+          "Manipuler les éléments du DOM",
+          "Gérer les événements utilisateurs",
+          "Récupérer les données via l'API",
+        ],
+        challenges: [
+          "Première expérience avec les appels API",
+          "Gestion de l'authentification",
+          "Mise en place d'une modale de gestion de projet",
+        ],
+        solutions:
+          "Utilisation de fetch pour les appels API, création d'un système de filtre dynamique, et mise en place d'un système de login sécurisé.",
+      },
     },
     {
       title: "Kasa",
@@ -40,8 +80,91 @@ const Projects = () => {
       demoUrl: "https://kasa-projet-5.vercel.app/",
       githubUrl: "https://github.com/KilShaka/Kasa-Projet_5",
       technologies: ["React", "Sass"],
+      detailedInfo: {
+        context: "Application de location immobilière type Airbnb avec React.",
+        objectives: [
+          "Développer une application React complète",
+          "Créer des composants réutilisables",
+          "Implémenter du routing avec React Router",
+        ],
+        challenges: [
+          "Première application React complète",
+          "Gestion des états et des props",
+          "Animation des composants",
+        ],
+        solutions:
+          "Utilisation des hooks React, création de composants réutilisables, et mise en place d'animations CSS avec Sass.",
+      },
     },
   ];
+
+  const InfoDialog = ({ project }) => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute top-2 right-2 z-10"
+        >
+          <Info className="h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl">
+        <DialogHeader>
+          <DialogTitle className="text-2xl mb-4 text-foreground">
+            {project.title}
+          </DialogTitle>
+          <DialogDescription asChild>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-base font-semibold mb-2 text-foreground">
+                  Contexte
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {project.detailedInfo.context}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold mb-2 text-foreground">
+                  Objectifs
+                </h4>
+                <ul className="list-disc pl-4 text-sm text-muted-foreground">
+                  {project.detailedInfo.objectives.map((objective, idx) => (
+                    <li key={idx} className="mb-1">
+                      {objective}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold mb-2 text-foreground">
+                  Défis rencontrés
+                </h4>
+                <ul className="list-disc pl-4 text-sm text-muted-foreground">
+                  {project.detailedInfo.challenges.map((challenge, idx) => (
+                    <li key={idx} className="mb-1">
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-base font-semibold mb-2 text-foreground">
+                  Solutions apportées
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {project.detailedInfo.solutions}
+                </p>
+              </div>
+            </div>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
 
   return (
     <section id="projects" className="py-12 scroll-mt-16">
@@ -62,10 +185,8 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Card
-                key={index}
-                className="hover:scale-105 hover:shadow-xl transition-all duration-300"
-              >
+              <Card className="hover:scale-105 hover:shadow-xl transition-all duration-300 relative">
+                <InfoDialog project={project} />
                 <CardHeader>
                   <AspectRatio ratio={16 / 9} className="bg-muted">
                     <img
