@@ -1,11 +1,11 @@
-import Navbar from "./components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import profileImage from "./assets/images/profile.jpg";
+import profileImage from "@/assets/images/profile.jpg";
 import { Separator } from "@/components/ui/separator";
-import Projects from "./components/sections/Projects";
-import Skills from "./components/sections/Skills";
-import Contact from "./components/sections/Contact";
-import Education from "./components/sections/Education";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Contact from "@/components/sections/Contact";
+import Education from "@/components/sections/Education";
 
 function App() {
   return (

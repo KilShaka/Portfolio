@@ -38,11 +38,11 @@ const Skills = () => {
     {
       name: "Express",
       icon: "devicon-express-original",
-      description:
-        "Framework CSS utilitaire pour un développement rapide et flexible",
+      description: "Framework backend Node.js pour créer des APIs RESTful",
     },
   ];
 
+  // RENDER
   return (
     <section id="skills" className="py-12 scroll-mt-16">
       <div className="container">
@@ -64,7 +64,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <HoverCard key={skill.name}>
+              <HoverCard>
                 <HoverCardTrigger asChild>
                   <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors cursor-pointer">
                     <i

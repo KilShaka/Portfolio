@@ -17,9 +17,9 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
-import bookiImage from "../../assets/images/Booki.png";
-import kasaImage from "../../assets/images/Kasa.png";
-import bluelImage from "../../assets/images/SophieBluelPhoto2.png";
+import bookiImage from "@/assets/images/Booki.png";
+import kasaImage from "@/assets/images/Kasa.png";
+import bluelImage from "@/assets/images/SophieBluelPhoto2.png";
 import { motion } from "framer-motion";
 
 const Projects = () => {
@@ -129,8 +129,8 @@ const Projects = () => {
                   Objectifs
                 </h4>
                 <ul className="list-disc pl-4 text-sm text-muted-foreground">
-                  {project.detailedInfo.objectives.map((objective, idx) => (
-                    <li key={idx} className="mb-1">
+                  {project.detailedInfo.objectives.map((objective, index) => (
+                    <li key={index} className="mb-1">
                       {objective}
                     </li>
                   ))}
@@ -142,8 +142,8 @@ const Projects = () => {
                   Défis rencontrés
                 </h4>
                 <ul className="list-disc pl-4 text-sm text-muted-foreground">
-                  {project.detailedInfo.challenges.map((challenge, idx) => (
-                    <li key={idx} className="mb-1">
+                  {project.detailedInfo.challenges.map((challenge, index) => (
+                    <li key={index} className="mb-1">
                       {challenge}
                     </li>
                   ))}
@@ -164,7 +164,7 @@ const Projects = () => {
       </DialogContent>
     </Dialog>
   );
-
+  // RENDER
   return (
     <section id="projects" className="py-12 scroll-mt-16">
       <div className="container">
@@ -201,9 +201,9 @@ const Projects = () => {
                   </CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.technologies.map((tech, idx) => (
+                    {project.technologies.map((tech, index) => (
                       <span
-                        key={idx}
+                        key={index}
                         className="px-2 py-1 bg-secondary text-secondary-foreground rounded-md text-sm"
                       >
                         {tech}
