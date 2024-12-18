@@ -24,6 +24,9 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <span className="sr-only">
+            {isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          </span>
         </Button>
 
         {/* MENU DESKTOP */}
@@ -45,7 +48,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
+              <span className="sr-only">Visitez mon profil GitHub</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
@@ -55,13 +58,13 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
+              <span className="sr-only">Visitez mon profil LinkedIn</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <a href="#contact">
               <Mail className="h-5 w-5" />
-              <span className="sr-only">Contact</span>
+              <span className="sr-only">Contactez-moi</span>
             </a>
           </Button>
           <ThemeToggler />
@@ -107,6 +110,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <Github className="h-5 w-5" />
+              <span className="sr-only">Visitez mon profil GitHub</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
@@ -116,11 +120,13 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <Linkedin className="h-5 w-5" />
+              <span className="sr-only">Visitez mon profil Linkedin</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild onClick={toggleMenu}>
             <a href="#contact">
               <Mail className="h-5 w-5" />
+              <span className="sr-only">Contactez-moi</span>
             </a>
           </Button>
           <ThemeToggler />

@@ -11,15 +11,15 @@ function App() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Navbar />
-      <div className="min-h-screen backdrop-blur-[2px]">
+      <div className="min-h-screen">
         <div className="container p-8 flex flex-col md:flex-row items-center gap-8 justify-center">
           <Avatar className="h-48 w-48 lg:h-64 lg:w-64">
-            <AvatarImage src={profileImage} />
+            <AvatarImage src={profileImage} alt="Photo de Killian PEREAU" />
             <AvatarFallback>KP</AvatarFallback>
           </Avatar>
 
           <div className="flex flex-col items-center text-center">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary dark:text-[#667BD1]">
               Killian PEREAU
             </h1>
             <p className="mt-4 text-muted-foreground max-w-md">

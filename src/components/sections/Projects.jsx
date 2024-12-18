@@ -106,6 +106,9 @@ const Projects = () => {
           className="absolute top-2 right-2 z-10"
         >
           <Info className="h-4 w-4" />
+          <span className="sr-only">
+            Plus d'informations sur le projet {project.title}
+          </span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl">
@@ -184,7 +187,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="hover:scale-105 hover:shadow-xl transition-all duration-300 relative">
+              <Card className="hover:scale-105 hover:shadow-xl transition-all duration-300 relative h-full">
                 <InfoDialog project={project} />
                 <CardHeader>
                   <AspectRatio ratio={16 / 9} className="bg-muted">

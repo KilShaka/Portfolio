@@ -74,7 +74,7 @@ const Contact = () => {
 
   //RENDER
   return (
-    <section id="contact" className="py-12 min-h-screen scroll-mt-16">
+    <section id="contact" className="py-12 scroll-mt-16">
       <div className="container max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
